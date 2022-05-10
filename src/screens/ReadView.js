@@ -10,7 +10,6 @@ class ReadView extends React.Component {
 
   async read() {
     const querySnapshot = await getDocs(collection(db, "users"));
-
     const documents = querySnapshot.docs;
 
     this.setState({
