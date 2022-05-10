@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { collection, getDocs } from "firebase/firestore";
 import db from '../utilities/Firebase'
 
@@ -24,7 +25,7 @@ class ReadView extends React.Component {
   render() {
 
     return (
-      <div>
+      <main>
         <h2>Read</h2>
 
         <ul>
@@ -34,7 +35,7 @@ class ReadView extends React.Component {
             ))
           }
         </ul>
-      </div>
+      </main>
     );
   }
   
