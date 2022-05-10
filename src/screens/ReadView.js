@@ -4,20 +4,37 @@ import db from '../utilities/Firebase'
 
 class ReadView extends React.Component {
 
-  read = async () => {
-    const querySnapshot = await getDocs(collection(db, "memos"));
-    querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data()}`);
+  state = {
+    documents: []
+  }
+
+  async read() {
+    const querySnapshot = await getDocs(collection(db, "users"));
+
+    const documents = querySnapshot.docs;
+
+    this.setState({
+      documents: documents
     });
+  }
+
+  async componentDidMount() {
+    this.read()
   }
   
   render() {
-    const read = this.read()
 
     return (
       <div>
         <h1>Read</h1>
-        <button onClick={read}>Read</button>
+
+        <ul>
+          {
+            this.state.documents.map(document => (
+              <li key={document.id}>{document.data().displayName}</li>
+            ))
+          }
+        </ul>
       </div>
     );
   }
