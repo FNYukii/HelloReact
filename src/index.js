@@ -1,11 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 import ReadView from './screens/ReadView';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ReadView />
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<ReadView/>}/>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
