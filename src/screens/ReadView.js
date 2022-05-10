@@ -25,7 +25,7 @@ class ReadView extends React.Component {
 
     return (
       <div>
-        <h1>Read</h1>
+        <h2>Read</h2>
 
         <ul>
           {
