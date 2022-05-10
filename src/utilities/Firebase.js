@@ -1,8 +1,6 @@
-// Firebase関連のモジュールをインポート
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/firestore';
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
 
-// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCg4mZk-KEWMmeJ8KhMF1qw3EE5Ar2EC8g",
   authDomain: "reactfire-b8b73.firebaseapp.com",
@@ -13,8 +11,9 @@ const firebaseConfig = {
   measurementId: "G-S7XJVZS8W6"
 };
 
-// Firebase初期化
-firebase.initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-// モジュールとしてExport
-export default firebase;
+export {
+  db as default
+};
