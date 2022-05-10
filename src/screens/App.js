@@ -1,3 +1,5 @@
+import firebase, { db } from '../utilities/Firebase';
+
 function App() {
   return (
     <div className="App">
