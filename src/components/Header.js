@@ -7,11 +7,11 @@ function Header() {
     <header>
       <a href='/' className='logo'>React Fire</a>
       <ul>
-        <li><NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>Read</NavLink></li>
-        <li><NavLink to="/read-realtime" className={({ isActive }) => (isActive ? 'active' : '')}>Read Realtime</NavLink></li>
-        <li><NavLink to="/create" className={({ isActive }) => (isActive ? 'active' : '')}>Create</NavLink></li>
-        <li><NavLink to="/update" className={({ isActive }) => (isActive ? 'active' : '')}>Update</NavLink></li>
-        <li><NavLink to="/delete" className={({ isActive }) => (isActive ? 'active' : '')}>Delete</NavLink></li>
+        <li><NavLink to="/" activeClassName='active' exact={true}>Read</NavLink></li>
+        <li><NavLink to="/read-realtime" activeClassName='active'>Read Realtime</NavLink></li>
+        <li><NavLink to="/create" activeClassName='active'>Create</NavLink></li>
+        <li><NavLink to="/update" activeClassName='active'>Update</NavLink></li>
+        <li><NavLink to="/delete" activeClassName='active'>Delete</NavLink></li>
       </ul>
     </header>
   )
