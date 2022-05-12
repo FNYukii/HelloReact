@@ -5,7 +5,7 @@ function Header() {
 
   return (
     <header>
-      <span className='logo'>ReactFire</span>
+      <a href='/' className='logo'>React Fire</a>
       <ul>
         <li><NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>Read</NavLink></li>
         <li><NavLink to="/read-realtime" className={({ isActive }) => (isActive ? 'active' : '')}>Read Realtime</NavLink></li>
