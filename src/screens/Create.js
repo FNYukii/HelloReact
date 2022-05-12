@@ -18,6 +18,12 @@ class Create extends React.Component {
     });
   }
 
+  onChangeUserName(event) {
+    this.setState({
+      userName: event.target.value
+    });
+  }
+
   async create() {
     const docRef = await addDoc(collection(db, 'users'), {
       displayName: 'Ayumu',
@@ -28,7 +34,8 @@ class Create extends React.Component {
 
   render() {
 
-    const onChangeDisplayName = (event) => this.onChangeDisplayName(event)
+    const onChangeDisplayName = (event) => this.onChangeDisplayName(event);
+    const onChangeUserName = (event) => this.onChangeUserName(event);
 
     return (
       <main>
@@ -36,6 +43,7 @@ class Create extends React.Component {
 
         <form>
           <input value={this.state.displayName} onChange={onChangeDisplayName}/>
+          <input value={this.state.userName} onChange={onChangeUserName}/>
         </form>
 
         <button onClick={this.create}>Add</button>
