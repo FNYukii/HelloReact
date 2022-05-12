@@ -31,6 +31,10 @@ class Create extends React.Component {
       displayName: this.state.displayName,
       userName: this.state.userName
     });
+    this.setState({
+      displayName: '',
+      userName: ''
+    });
     console.log('Document written with ID: ', docRef.id);
   }
 
