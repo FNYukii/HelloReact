@@ -5,7 +5,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import './styles/index.css'
 
 import Header from './components/Header';
-import ReadView from './screens/ReadView';
+import Read from './screens/Read';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,7 +13,7 @@ root.render(
     <Header/>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<ReadView/>}/>
+        <Route path='/' element={<Read/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
