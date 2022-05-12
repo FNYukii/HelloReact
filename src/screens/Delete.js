@@ -1,12 +1,16 @@
 import React from 'react';
+import Header from '../components/Header';
 
 class Delete extends React.Component {
 
   render() {
     return (
-      <main>
-        <h2>Delete</h2>
-      </main>
+      <div>
+        <Header index={4}/>
+        <main>
+          <h2>Delete</h2>
+        </main>
+      </div>
     );
   }
 }

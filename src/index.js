@@ -4,7 +4,6 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 import './styles/index.css'
 
-import Header from './components/Header';
 import Read from './screens/Read';
 import ReadRealtime from './screens/ReadRealtime';
 import Create from './screens/Create';
@@ -15,7 +14,6 @@ import NotFound from './screens/NotFound';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Header/>
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Read/>}/>

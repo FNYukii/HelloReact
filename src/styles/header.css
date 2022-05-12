@@ -22,6 +22,10 @@ header ul li a {
   margin-left: 32px;
 }
 
+header ul li .currentNavItem {
+  color: #000;
+}
+
 header ul li a:hover {
   color: #000;
 }

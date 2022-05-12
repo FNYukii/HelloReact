@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from '../components/Header';
 
 class Create extends React.Component {
 
@@ -8,9 +9,12 @@ class Create extends React.Component {
 
   render() {
     return (
-      <main>
-        <h2>Create</h2>
-      </main>
+      <div>
+        <Header index={2}/>
+        <main>
+          <h2>Create</h2>
+        </main>
+      </div>
     );
   }
 }

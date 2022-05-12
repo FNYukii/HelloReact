@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import Header from '../components/Header';
 
 import { collection, getDocs } from "firebase/firestore";
 import db from '../utilities/Firebase'
@@ -25,17 +26,20 @@ class Read extends React.Component {
   render() {
 
     return (
-      <main>
-        <h2>Read</h2>
+      <div>
+        <Header index={0}/>
+        <main>
+          <h2>Read</h2>
 
-        <ul>
-          {
-            this.state.documents.map(document => (
-              <li key={document.id}>{document.data().displayName}</li>
-            ))
-          }
-        </ul>
-      </main>
+          <ul>
+            {
+              this.state.documents.map(document => (
+                <li key={document.id}>{document.data().displayName}</li>
+              ))
+            }
+          </ul>
+        </main>
+      </div>
     );
   }
   

@@ -1,12 +1,16 @@
 import React from 'react';
+import Header from '../components/Header';
 
 class NotFound extends React.Component {
 
   render() {
     return (
-      <main>
-        <h2>NotFound</h2>
-      </main>
+      <div>
+        <Header/>
+        <main>
+          <h2>NotFound</h2>
+        </main>
+      </div>
     );
   }
 }
