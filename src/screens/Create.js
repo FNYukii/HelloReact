@@ -2,6 +2,8 @@ import React from 'react';
 import { collection, addDoc } from 'firebase/firestore'; 
 import db from '../utilities/Firebase';
 
+import '../styles/create.css';
+
 class Create extends React.Component {
 
   constructor() {
@@ -42,8 +44,15 @@ class Create extends React.Component {
         <h2>Create</h2>
 
         <form>
-          <input value={this.state.displayName} onChange={onChangeDisplayName}/>
-          <input value={this.state.userName} onChange={onChangeUserName}/>
+          <div className='form-item'>
+            <span>Display name</span>
+            <input value={this.state.displayName} onChange={onChangeDisplayName}/>
+          </div>
+
+          <div className='form-item'>
+            <span>User name</span>
+            <input value={this.state.userName} onChange={onChangeUserName}/>
+          </div>
         </form>
 
         <button onClick={this.create}>Add</button>
