@@ -1,23 +1,17 @@
 import '../styles/header.css';
+import { NavLink } from 'react-router-dom'
 
-function Header(props) {
-
-  function navItemClassName(index) {
-    if (props.index === index) {
-      return 'currentNavItem'
-    }
-    return ''
-  }
+function Header() {
 
   return (
     <header>
       <span className='logo'>ReactFire</span>
       <ul>
-        <li><a className={navItemClassName(0)} href='/'>Read</a></li>
-        <li><a className={navItemClassName(1)} href='/read-realtime'>Read Realtime</a></li>
-        <li><a className={navItemClassName(2)} href='/create'>Create</a></li>
-        <li><a className={navItemClassName(3)} href='/update'>Update</a></li>
-        <li><a className={navItemClassName(4)} href='/delete'>Delete</a></li>
+        <li><NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>Read</NavLink></li>
+        <li><NavLink to="/read-realtime" className={({ isActive }) => (isActive ? 'active' : '')}>Read Realtime</NavLink></li>
+        <li><NavLink to="/create" className={({ isActive }) => (isActive ? 'active' : '')}>Create</NavLink></li>
+        <li><NavLink to="/update" className={({ isActive }) => (isActive ? 'active' : '')}>Update</NavLink></li>
+        <li><NavLink to="/delete" className={({ isActive }) => (isActive ? 'active' : '')}>Delete</NavLink></li>
       </ul>
     </header>
   )

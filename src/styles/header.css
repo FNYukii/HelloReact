@@ -22,7 +22,7 @@ header ul li a {
   margin-left: 32px;
 }
 
-header ul li .currentNavItem {
+header ul li .active {
   color: #000;
 }
 
