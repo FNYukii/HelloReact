@@ -28,8 +28,8 @@ class Create extends React.Component {
 
   async create() {
     const docRef = await addDoc(collection(db, 'users'), {
-      displayName: 'Ayumu',
-      userName: 'Ayumu_Satonaka'
+      displayName: this.state.displayName,
+      userName: this.state.userName
     });
     console.log('Document written with ID: ', docRef.id);
   }
@@ -55,7 +55,7 @@ class Create extends React.Component {
           </div>
         </form>
 
-        <button onClick={this.create}>Add</button>
+        <button onClick={this.create.bind(this)}>Add</button>
       </main>
     );
   }
