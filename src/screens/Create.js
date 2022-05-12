@@ -4,6 +4,20 @@ import db from '../utilities/Firebase';
 
 class Create extends React.Component {
 
+  constructor() {
+    super();
+    this.state = {
+      displayName: '',
+      userName: ''
+    };
+  }
+
+  onChangeDisplayName(event) {
+    this.setState({
+      displayName: event.target.value
+    });
+  }
+
   async create() {
     const docRef = await addDoc(collection(db, 'users'), {
       displayName: 'Ayumu',
@@ -13,9 +27,17 @@ class Create extends React.Component {
   }
 
   render() {
+
+    const onChangeDisplayName = (event) => this.onChangeDisplayName(event)
+
     return (
       <main>
         <h2>Create</h2>
+
+        <form>
+          <input value={this.state.displayName} onChange={onChangeDisplayName}/>
+        </form>
+
         <button onClick={this.create}>Add</button>
       </main>
     );
