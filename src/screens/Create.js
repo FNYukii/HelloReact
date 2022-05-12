@@ -27,15 +27,19 @@ class Create extends React.Component {
   }
 
   async create() {
-    const docRef = await addDoc(collection(db, 'users'), {
-      displayName: this.state.displayName,
-      userName: this.state.userName
-    });
+    if (this.state.displayName !== '' && this.state.userName !== '') {
+      // Create
+      const docRef = await addDoc(collection(db, 'users'), {
+        displayName: this.state.displayName,
+        userName: this.state.userName
+      });
+      console.log('Document written with ID: ', docRef.id);
+    }
+
     this.setState({
       displayName: '',
       userName: ''
     });
-    console.log('Document written with ID: ', docRef.id);
   }
 
   render() {
