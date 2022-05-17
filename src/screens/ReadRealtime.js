@@ -1,5 +1,5 @@
 import React from 'react';
-import { collection, query, where, onSnapshot } from "firebase/firestore";
+import { collection, query, onSnapshot } from "firebase/firestore";
 import db from '../utilities/Firebase';
 
 class ReadRealtime extends React.Component {
@@ -10,7 +10,7 @@ class ReadRealtime extends React.Component {
 
   listen() {
     const q = query(collection(db, "users"));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+    onSnapshot(q, (querySnapshot) => {
       const docs = [];
       querySnapshot.forEach((doc) => {
         docs.push(doc);
