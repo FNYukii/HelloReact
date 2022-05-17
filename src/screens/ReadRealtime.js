@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { collection, query, onSnapshot } from "firebase/firestore";
 import db from '../utilities/Firebase';
 
-const ReadRealtime = () => {
+function ReadRealtime() {
 
   const [state, setState] = useState({
     documents: []
