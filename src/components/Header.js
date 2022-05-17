@@ -9,7 +9,7 @@ function Header() {
       <div className='large-container'>
         <a href='/' className='logo'>React Fire</a>
 
-        <ul>
+        <ul className='global-nav'>
           <li><NavLink to="/" activeclassname='active' exact='true'>Read</NavLink></li>
           <li><NavLink to="/read-realtime" activeclassname='active'>Read Realtime</NavLink></li>
           <li><NavLink to="/create" activeclassname='active'>Create</NavLink></li>
