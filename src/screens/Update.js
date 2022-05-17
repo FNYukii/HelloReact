@@ -1,17 +1,15 @@
 import React from 'react';
 
-class Update extends React.Component {
+function Update() {
 
-  render() {
-    return (
-      <main>
-        <div className='large-container'>
-          <h2>Update</h2>
+  return (
+    <main>
+      <div className='large-container'>
+        <h2>Update</h2>
 
-        </div>
-      </main>
-    );
-  }
+      </div>
+    </main>
+  );
 }
 
 export default Update;

@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { collection, query, onSnapshot } from "firebase/firestore";
 import db from '../utilities/Firebase';
 
-const ReadRealtime = () => {
+function ReadRealtime() {
 
-  const [state, setState] = useState({
-    documents: []
-  });
+  const [documents, setDocuments] = useState([])
 
   useEffect(() => {
     const q = query(collection(db, "users"));
@@ -17,9 +15,7 @@ const ReadRealtime = () => {
         console.log(`id: ${doc.id}, displayName: ${doc.data().displayName}, userName: ${doc.data().userName}`);
       });
 
-      setState({
-        documents: docs
-      });
+      setDocuments(docs);
     });
 
     return () => {
@@ -35,7 +31,7 @@ const ReadRealtime = () => {
 
         <ul>
           {
-            state.documents.map(document => (
+            documents.map(document => (
               <li key={document.id}>{document.data().displayName}</li>
             ))
           }

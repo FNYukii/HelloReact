@@ -1,17 +1,15 @@
 import React from 'react';
 
-class Delete extends React.Component {
+function Delete() {
+  
+  return (
+    <main>
+      <div className='large-container'>
+        <h2>Delete</h2>
 
-  render() {
-    return (
-      <main>
-        <div className='large-container'>
-          <h2>Delete</h2>
-
-        </div>
-      </main>
-    );
-  }
+      </div>
+    </main>
+  );
 }
 
 export default Delete;

@@ -1,15 +1,12 @@
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from "firebase/firestore";
-import db from '../utilities/Firebase'
+import db from '../utilities/Firebase';
 
-class Read extends React.Component {
+function Read() {
 
-  state = {
-    documents: []
-  }
+  const[documents, setDocuments] = useState([])
 
-  async read() {
+  async function read() {
     const querySnapshot = await getDocs(collection(db, "users"));
     const documents = querySnapshot.docs;
 
@@ -17,35 +14,30 @@ class Read extends React.Component {
       console.log(`id: ${doc.id}, displayName: ${doc.data().displayName}, userName: ${doc.data().userName}`);
     });
 
-    this.setState({
-      documents: documents
-    });
+    setDocuments(documents);
   }
 
-  async componentDidMount() {
-    this.read()
-  }
-  
-  render() {
+  useEffect(() => {
+    read();
+  }, []);
 
-    return (
-      <main>
-        <div className='large-container'>
-          <h2>Read</h2>
+  return (
+    <main>
+      <div className='large-container'>
+        <h2>Read</h2>
 
-          <ul>
-            {
-              this.state.documents.map(document => (
-                <li key={document.id}>{document.data().displayName}</li>
-              ))
-            }
-          </ul>
+        <ul>
+          {
+            documents.map(document => (
+              <li key={document.id}>{document.data().displayName}</li>
+            ))
+          }
+        </ul>
 
-        </div>
-      </main>
-    );
-  }
-  
+      </div>
+    </main>
+  );
+
 }
 
 export default Read;
