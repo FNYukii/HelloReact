@@ -32,8 +32,20 @@ header .global-nav li a:hover {
   color: #000;
 }
 
+header .bars {
+  float: right;
+  cursor: pointer;
+  margin-top: 12px;
+  color: #777;
+  font-size: x-large;
+  display: none;
+}
+
 @media (max-width: 800px) {
   header .global-nav {
     display: none;
+  }
+  header .bars {
+    display: block;
   }
 }
