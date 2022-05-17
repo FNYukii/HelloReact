@@ -34,6 +34,9 @@ class Create extends React.Component {
         userName: this.state.userName
       });
       console.log('Document written with ID: ', docRef.id);
+      alert('Document creation successfull.');
+    } else {
+      alert('Document creation failed.');
     }
 
     this.setState({
@@ -49,21 +52,24 @@ class Create extends React.Component {
 
     return (
       <main>
-        <h2>Create</h2>
+        <div className='large-container'>
+          <h2>Create</h2>
 
-        <form>
-          <div className='form-item'>
-            <span>Display name</span>
-            <input value={this.state.displayName} onChange={onChangeDisplayName}/>
-          </div>
+          <form>
+            <div className='form-item'>
+              <span>Display name</span>
+              <input value={this.state.displayName} onChange={onChangeDisplayName}/>
+            </div>
 
-          <div className='form-item'>
-            <span>User name</span>
-            <input value={this.state.userName} onChange={onChangeUserName}/>
-          </div>
-        </form>
+            <div className='form-item'>
+              <span>User name</span>
+              <input value={this.state.userName} onChange={onChangeUserName}/>
+            </div>
+          </form>
 
-        <button onClick={this.create.bind(this)}>Add</button>
+          <button onClick={this.create.bind(this)}>Add</button>
+
+        </div>
       </main>
     );
   }
