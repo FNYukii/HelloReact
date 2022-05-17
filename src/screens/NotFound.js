@@ -1,14 +1,12 @@
 import React from 'react';
 
-class NotFound extends React.Component {
+function NotFound() {
 
-  render() {
-    return (
-      <main>
-        <h2>NotFound</h2>
-      </main>
-    );
-  }
+  return (
+    <main>
+      <h2>NotFound</h2>
+    </main>
+  );
 }
 
 export default NotFound;
