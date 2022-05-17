@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from "firebase/firestore";
-import db from '../utilities/Firebase'
+import db from '../utilities/Firebase';
 
 function Read() {
 
@@ -38,8 +38,6 @@ function Read() {
     </main>
   );
 
-
 }
-
 
 export default Read;
