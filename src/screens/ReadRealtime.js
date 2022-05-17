@@ -9,7 +9,6 @@ const ReadRealtime = () => {
   });
 
   useEffect(() => {
-
     const q = query(collection(db, "users"));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       const docs = [];
@@ -30,19 +29,19 @@ const ReadRealtime = () => {
 
   return (
     <main>
-        <div className='large-container'>
-          <h2>Read Realtime</h2>
+      <div className='large-container'>
+        <h2>Read Realtime</h2>
 
-          <ul>
-            {
-              state.documents.map(document => (
-                <li key={document.id}>{document.data().displayName}</li>
-              ))
-            }
-          </ul>
-          
-        </div>
-      </main>
+        <ul>
+          {
+            state.documents.map(document => (
+              <li key={document.id}>{document.data().displayName}</li>
+            ))
+          }
+        </ul>
+        
+      </div>
+    </main>
   );
 };
 
