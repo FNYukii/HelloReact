@@ -5,7 +5,10 @@ class ReadRealtime extends React.Component {
   render() {
     return (
       <main>
-        <h2>Read Realtime</h2>
+        <div className='large-container'>
+          <h2>Read Realtime</h2>
+
+        </div>
       </main>
     );
   }

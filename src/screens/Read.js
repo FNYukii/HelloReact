@@ -26,14 +26,18 @@ class Read extends React.Component {
 
     return (
       <main>
-        <h2>Read</h2>
-        <ul>
-          {
-            this.state.documents.map(document => (
-              <li key={document.id}>{document.data().displayName}</li>
-            ))
-          }
-        </ul>
+        <div className='large-container'>
+          <h2>Read</h2>
+
+          <ul>
+            {
+              this.state.documents.map(document => (
+                <li key={document.id}>{document.data().displayName}</li>
+              ))
+            }
+          </ul>
+
+        </div>
       </main>
     );
   }

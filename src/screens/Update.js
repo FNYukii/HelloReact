@@ -5,7 +5,10 @@ class Update extends React.Component {
   render() {
     return (
       <main>
-        <h2>Update</h2>
+        <div className='large-container'>
+          <h2>Update</h2>
+
+        </div>
       </main>
     );
   }

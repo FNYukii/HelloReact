@@ -5,7 +5,10 @@ class Delete extends React.Component {
   render() {
     return (
       <main>
-        <h2>Delete</h2>
+        <div className='large-container'>
+          <h2>Delete</h2>
+
+        </div>
       </main>
     );
   }
