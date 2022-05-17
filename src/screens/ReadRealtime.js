@@ -4,9 +4,7 @@ import db from '../utilities/Firebase';
 
 function ReadRealtime() {
 
-  const [state, setState] = useState({
-    documents: []
-  });
+  const [documents, setDocuments] = useState([])
 
   useEffect(() => {
     const q = query(collection(db, "users"));
@@ -17,9 +15,7 @@ function ReadRealtime() {
         console.log(`id: ${doc.id}, displayName: ${doc.data().displayName}, userName: ${doc.data().userName}`);
       });
 
-      setState({
-        documents: docs
-      });
+      setDocuments(docs);
     });
 
     return () => {
@@ -35,7 +31,7 @@ function ReadRealtime() {
 
         <ul>
           {
-            state.documents.map(document => (
+            documents.map(document => (
               <li key={document.id}>{document.data().displayName}</li>
             ))
           }
