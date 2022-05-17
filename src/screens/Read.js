@@ -13,6 +13,10 @@ class Read extends React.Component {
     const querySnapshot = await getDocs(collection(db, "users"));
     const documents = querySnapshot.docs;
 
+    documents.forEach((doc) => {
+      console.log(`id: ${doc.id}, displayName: ${doc.data().displayName}, userName: ${doc.data().userName}`);
+    });
+
     this.setState({
       documents: documents
     });
