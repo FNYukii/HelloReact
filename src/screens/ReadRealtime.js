@@ -33,6 +33,14 @@ class ReadRealtime extends React.Component {
         <div className='large-container'>
           <h2>Read Realtime</h2>
 
+          <ul>
+            {
+              this.state.documents.map(document => (
+                <li key={document.id}>{document.data().displayName}</li>
+              ))
+            }
+          </ul>
+          
         </div>
       </main>
     );
