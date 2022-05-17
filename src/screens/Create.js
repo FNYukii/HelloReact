@@ -1,78 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { collection, addDoc } from 'firebase/firestore'; 
 import db from '../utilities/Firebase';
-
 import '../styles/create.css';
 
-class Create extends React.Component {
+function Create() {
 
-  constructor() {
-    super();
-    this.state = {
-      displayName: '',
-      userName: ''
-    };
+  const[displayName, setDisplayName] = useState('');
+  const[userName, setUserName] = useState('');
+
+  const onInputDisplayName = (e) => {
+    setDisplayName(e.target.value);
   }
 
-  onChangeDisplayName(event) {
-    this.setState({
-      displayName: event.target.value
-    });
+  const onInputUserName = (e) => {
+    setUserName(e.target.value);
   }
 
-  onChangeUserName(event) {
-    this.setState({
-      userName: event.target.value
-    });
-  }
-
-  async create() {
-    if (this.state.displayName !== '' && this.state.userName !== '') {
-      // Create
-      const docRef = await addDoc(collection(db, 'users'), {
-        displayName: this.state.displayName,
-        userName: this.state.userName
+  const create = () => {
+    if (displayName !== '' && userName !== '') {
+      const docRef = addDoc(collection(db, 'users'), {
+        displayName: displayName,
+        userName: userName
       });
+
       console.log('Document written with ID: ', docRef.id);
       alert('Document creation successfull.');
     } else {
       alert('Document creation failed.');
     }
 
-    this.setState({
-      displayName: '',
-      userName: ''
-    });
+    setDisplayName('');
+    setUserName('');
   }
 
-  render() {
+  return (
+    <main>
+      <div className='large-container'>
+        <h2>Create</h2>
 
-    const onChangeDisplayName = (event) => this.onChangeDisplayName(event);
-    const onChangeUserName = (event) => this.onChangeUserName(event);
+        <form>
+          <div className='form-item'>
+            <span>Display name</span>
+            <input value={displayName} onChange={onInputDisplayName}/>
+          </div>
 
-    return (
-      <main>
-        <div className='large-container'>
-          <h2>Create</h2>
+          <div className='form-item'>
+            <span>User name</span>
+            <input value={userName} onChange={onInputUserName}/>
+          </div>
+        </form>
 
-          <form>
-            <div className='form-item'>
-              <span>Display name</span>
-              <input value={this.state.displayName} onChange={onChangeDisplayName}/>
-            </div>
+        <button onClick={create}>Add</button>
 
-            <div className='form-item'>
-              <span>User name</span>
-              <input value={this.state.userName} onChange={onChangeUserName}/>
-            </div>
-          </form>
+      </div>
+    </main>
+  );
 
-          <button onClick={this.create.bind(this)}>Add</button>
-
-        </div>
-      </main>
-    );
-  }
 }
 
 export default Create;
