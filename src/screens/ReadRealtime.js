@@ -1,41 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { collection, query, onSnapshot } from "firebase/firestore";
 import db from '../utilities/Firebase';
 
-class ReadRealtime extends React.Component {
+const ReadRealtime = () => {
 
-  state = {
+  const [state, setState] = useState({
     documents: []
-  }
+  });
 
-  listen() {
+  useEffect(() => {
+
     const q = query(collection(db, "users"));
-    onSnapshot(q, (querySnapshot) => {
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
       const docs = [];
       querySnapshot.forEach((doc) => {
         docs.push(doc);
         console.log(`id: ${doc.id}, displayName: ${doc.data().displayName}, userName: ${doc.data().userName}`);
       });
 
-      this.setState({
+      setState({
         documents: docs
-      })
+      });
     });
-  }
 
-  componentDidMount() {
-    this.listen();
-  }
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
-  render() {
-    return (
-      <main>
+  return (
+    <main>
         <div className='large-container'>
           <h2>Read Realtime</h2>
 
           <ul>
             {
-              this.state.documents.map(document => (
+              state.documents.map(document => (
                 <li key={document.id}>{document.data().displayName}</li>
               ))
             }
@@ -43,8 +43,7 @@ class ReadRealtime extends React.Component {
           
         </div>
       </main>
-    );
-  }
-}
+  );
+};
 
 export default ReadRealtime;
