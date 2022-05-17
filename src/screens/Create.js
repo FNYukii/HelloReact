@@ -34,6 +34,9 @@ class Create extends React.Component {
         userName: this.state.userName
       });
       console.log('Document written with ID: ', docRef.id);
+      alert('Document creation successfull.');
+    } else {
+      alert('Document creation failed.');
     }
 
     this.setState({
