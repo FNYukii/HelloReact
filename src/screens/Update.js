@@ -48,6 +48,7 @@ function Update(props) {
 
   useEffect(() => {
     read();
+    //eslint-disable-next-line
   }, []);
 
   return (
