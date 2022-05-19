@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { doc, getDoc } from "firebase/firestore";
+import db from '../utilities/Firebase';
 
 function Update(props) {
 
+  // Values
   let { id } = useParams();
   const [displayName, setDisplayName] = useState('');
   const [userName, setUserName] = useState('');
 
+  // OnChanges
   const onInputDisplayName = (e) => {
     setDisplayName(e.target.value);
   }
@@ -15,9 +19,27 @@ function Update(props) {
     setUserName(e.target.value);
   }
 
+  // Read
+  async function read() {
+    const docRef = doc(db, "users", id);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      setDisplayName(docSnap.data().displayName);
+      setUserName(docSnap.data().userName);
+    } else {
+      console.log("No such document!");
+    }
+  }
+
+  // Update
   const update = () => {
     // TODO: Update
   }
+
+  useEffect(() => {
+    read();
+  }, []);
 
   return (
     <main>
