@@ -1,0 +1,8 @@
+main .user-list a {
+  text-decoration: none;
+  color: inherit;
+}
+
+main .user-list a:hover {
+  text-decoration: underline;
+}
