@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import db from '../utilities/Firebase';
 
@@ -9,6 +9,7 @@ function Update(props) {
   let { id } = useParams();
   const [displayName, setDisplayName] = useState('');
   const [userName, setUserName] = useState('');
+  const navigate = useNavigate();
 
   // OnChanges
   const onInputDisplayName = (e) => {
@@ -40,7 +41,10 @@ function Update(props) {
       displayName: displayName,
       userName: userName
     });
+
+    navigate(-1)
   }
+
 
   useEffect(() => {
     read();
