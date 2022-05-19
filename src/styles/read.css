@@ -1,8 +1,5 @@
-main .user-list a {
-  text-decoration: none;
-  color: inherit;
-}
-
-main .user-list a:hover {
-  text-decoration: underline;
+main .user-list div {
+  margin: 8px;
+  padding: 32px;
+  border: 1px solid #7777;
 }

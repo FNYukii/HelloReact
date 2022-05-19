@@ -30,9 +30,14 @@ function Read() {
         <ul className='user-list'>
           {
             documents.map(document => (
-              <li key={document.id}>
-                <a href={'/update/' + document.id}>{document.data().displayName}</a>
-              </li>
+              <div key={document.id}>
+
+                <span>{document.data().displayName}</span>
+                <span>{document.data().userName}</span>
+
+                <a href='/'>Update</a>
+                <a href='/'>Delete</a>
+              </div>
             ))
           }
         </ul>
