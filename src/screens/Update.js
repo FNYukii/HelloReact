@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import db from '../utilities/Firebase';
 
 function Update(props) {
@@ -33,8 +33,13 @@ function Update(props) {
   }
 
   // Update
-  const update = () => {
-    // TODO: Update
+  async function update() {
+    const washingtonRef = doc(db, "users", id);
+
+    await updateDoc(washingtonRef, {
+      displayName: displayName,
+      userName: userName
+    });
   }
 
   useEffect(() => {
