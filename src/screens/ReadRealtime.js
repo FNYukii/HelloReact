@@ -32,9 +32,14 @@ function ReadRealtime() {
         <ul className='user-list'>
           {
             documents.map(document => (
-              <li key={document.id}>
-                <a href={'/update/' + document.id}>{document.data().displayName}</a>
-              </li>
+              <div key={document.id} className='card'>
+
+                <p className='display-name'>{document.data().displayName}</p>
+                <p className='user-name'>@{document.data().userName}</p>
+
+                <a href={'/update/' + document.id} className='update-link'>Update</a>
+                <a href='/' className='delete-link'>Delete</a>
+              </div>
             ))
           }
         </ul>
