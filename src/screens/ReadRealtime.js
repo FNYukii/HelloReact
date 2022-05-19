@@ -29,10 +29,12 @@ function ReadRealtime() {
       <div className='large-container'>
         <h2>Read Realtime</h2>
 
-        <ul>
+        <ul className='user-list'>
           {
             documents.map(document => (
-              <li key={document.id}>{document.data().displayName}</li>
+              <li key={document.id}>
+                <a href={'/update/' + document.id}>{document.data().displayName}</a>
+              </li>
             ))
           }
         </ul>
