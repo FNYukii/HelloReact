@@ -1,10 +1,19 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import { doc, deleteDoc } from "firebase/firestore";
+import db from '../utilities/Firebase';
 
 function Delete() {
 
   // Properties
   let { id } = useParams();
+  const navigate = useNavigate();
+
+  // Delete
+  async function deleteUser() {
+    await deleteDoc(doc(db, "users", id));
+    navigate(-1);
+  }
   
   // View
   return (
@@ -14,6 +23,7 @@ function Delete() {
 
         <p>id: {id}</p>
         
+        <button onClick={deleteUser}>Delete</button>
 
       </div>
     </main>
