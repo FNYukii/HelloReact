@@ -22,7 +22,7 @@ root.render(
         <Route path='/read-realtime' element={<ReadRealtime/>}/>
         <Route path='/create' element={<Create/>}/>
         <Route path='/update/:id' element={<Update/>}/>
-        <Route path='/delete' element={<Delete/>}/>
+        <Route path='/delete/:id' element={<Delete/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
     </BrowserRouter>
