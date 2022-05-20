@@ -38,7 +38,7 @@ function ReadRealtime() {
                 <p className='user-name'>@{document.data().userName}</p>
 
                 <a href={'/update/' + document.id} className='update-link'>Update</a>
-                <a href='/' className='delete-link'>Delete</a>
+                <a href={'/delete/' + document.id} className='delete-link'>Delete</a>
               </div>
             ))
           }
